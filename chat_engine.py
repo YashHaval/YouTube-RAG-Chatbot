@@ -9,9 +9,12 @@ from operator import itemgetter
 from dotenv import load_dotenv
 import os
 
+import streamlit as st
+from dotenv import load_dotenv
+
 load_dotenv()
 
-groq_api_key = os.getenv("GROQ_API_KEY")
+groq_api_key = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
 
 prompt = ChatPromptTemplate.from_messages([
     (
