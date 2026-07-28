@@ -7,7 +7,7 @@ langchain-huggingface==0.3.1
 langchain-text-splitters==0.3.11
 faiss-cpu==1.12.0
 sentence-transformers==5.1.0
-youtube-transcript-api==1.2.2
+youtube-transcript-api==1.2.4
 yt-dlp==2025.9.5
 python-dotenv==1.1.1
 openai==1.107.2
