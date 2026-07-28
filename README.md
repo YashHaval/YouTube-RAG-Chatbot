@@ -151,8 +151,8 @@ This project is licensed under the MIT License.
 ---
 
 ## 🌐 Live Demo:
-
-👉 https://lnkd.in/dj-dtxDW
+ 
+👉 https://youtube-rag-chatbot-4tun9f6gabgrpappzslys2.streamlit.app/
 
 ---
 
