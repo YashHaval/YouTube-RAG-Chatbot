@@ -1,3 +1,10 @@
+import os
+import tempfile
+
+from groq import Groq
+from youtube_transcript_api import YouTubeTranscriptApi
+from youtube_transcript_api._errors import RequestBlocked
+
 from youtube_transcript_api import YouTubeTranscriptApi
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
@@ -28,6 +35,7 @@ def extract_video_id(url):
 
 
 ytt_api = YouTubeTranscriptApi()
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 
 def process_video(url):
@@ -73,13 +81,12 @@ def process_video(url):
 
 def get_video_title(url):
     ydl_opts = {
-    "quiet": True,
-    "noplaylist": True
-}
+        "quiet": False,
+        "noplaylist": True,
+        "format": "bestaudio/best"
+    }
 
     with YoutubeDL(ydl_opts) as ydl:
-        info = ydl.extract_info(url, download=False)
-
-    print(info)   # Add this line
+        info = ydl.extract_info(url, download=True)
 
     return info["title"]
